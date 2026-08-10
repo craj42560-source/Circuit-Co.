@@ -125,12 +125,6 @@ const TESTIMONIALS = [
     text: 'Cracked my phone screen the week of exams. Fixed in under an hour for half what the high-street chains quoted. Brilliant.',
     rating: 5
   }
-  {
-    name: 'Chetan Budhathoki',
-    role: 'University Student',
-    text: 'I thought my laptop was dead after a coffee spill. They cleaned it, replaced the damaged components, and it works like new. Amazing service.',
-    rating: 5
-  }
 ];
 
 const FAQS = [
