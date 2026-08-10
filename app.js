@@ -1,7 +1,4 @@
 // ===== localStorage helpers (Client-side data storage) =====
-// Note: previously used sessionStorage, which only persists for a single
-// browser tab and is cleared on tab close / new tab. Switched to
-// localStorage so bookings persist on this device across tabs and reloads.
 
 var STORAGE_KEY = 'circuit_co_bookings';
 
@@ -23,13 +20,13 @@ function saveBooking(booking) {
 }
 
 function deleteBooking(id) {
-  var bookings = getBookings().filter(function (b) { return b.id !== id; });
+  var bookings = getBookings().filter(function (b) { return b.id !== id && b.reference !== id; });
   localStorage.setItem(STORAGE_KEY, JSON.stringify(bookings));
 }
 
 function updateBookingStatus(id, status) {
   var bookings = getBookings().map(function (b) {
-    return b.id === id ? Object.assign({}, b, { status: status }) : b;
+    return (b.id === id || b.reference === id) ? Object.assign({}, b, { status: status }) : b;
   });
   localStorage.setItem(STORAGE_KEY, JSON.stringify(bookings));
 }
@@ -76,7 +73,7 @@ function validateField(field, value) {
       if (!value) return 'Please choose a preferred time';
       return null;
     case 'message':
-      if (value.length > 500) return 'Message must be under 500 characters';
+      if (value && value.length > 500) return 'Message must be under 500 characters';
       return null;
     default:
       return null;
@@ -125,9 +122,8 @@ function updateThemeIcon(theme) {
   }
 }
 
-// ===== Back to top =====
-
 // ===== Back-to-top button =====
+
 function initBackToTop() {
   var btn = document.getElementById('backToTop');
   if (!btn) return;
