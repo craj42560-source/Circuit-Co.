@@ -196,15 +196,6 @@ var PROMO_CODES = {
   'SUMMER25': { type: 'percent', value: 25, label: '25% summer special' }
 };
 
-// ===== Interactive timeline data  =====
-var TIMELINE = [
-  { year: '2009', title: 'The beginning', text: 'Marcus Chen opens a one-man repair workshop above a chip shop on Deansgate, Manchester.' },
-  { year: '2012', title: 'First expansion', text: 'Hired a second technician and moved to a larger unit on the same street. Started offering data recovery.' },
-  { year: '2015', title: 'Board-level expertise', text: 'Invested in micro-soldering equipment and clean-room-grade recovery tools. Began taking on "unrepairable" devices.' },
-  { year: '2018', title: 'Business IT division', text: 'Launched managed IT contracts for small businesses across Manchester city centre.' },
-  { year: '2021', title: '5,000 repairs milestone', text: 'Surpassed 5,000 devices repaired. Expanded the team to five certified technicians.' },
-  { year: '2024', title: 'Today', text: 'Now a team of six with a reputation as Manchester\'s go-to for complex board-level and liquid-damage repair.' }
-];
 
 // Expose globally
 window.SERVICES = SERVICES;
@@ -214,4 +205,3 @@ window.TEAM = TEAM;
 window.SERVICE_PRICES = SERVICE_PRICES;
 window.URGENCY_OPTIONS = URGENCY_OPTIONS;
 window.PROMO_CODES = PROMO_CODES;
-window.TIMELINE = TIMELINE;
