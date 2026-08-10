@@ -48,8 +48,8 @@
 
       <section class="pb-5">
         <div class="container">
-          <!-- Filter tabs -->
-          <div class="d-flex flex-wrap gap-2 mb-4" id="filter-tabs" style="display: none !important;">
+          <!-- Filter tabs: removed !important so jQuery show() works -->
+          <div class="d-flex flex-wrap gap-2 mb-4" id="filter-tabs" style="display: none;">
             <button class="filter-tab active" data-filter="all" onclick="setFilter('all')">All <span class="count" data-count="all">(0)</span></button>
             <button class="filter-tab" data-filter="pending" onclick="setFilter('pending')">Pending <span class="count" data-count="pending">(0)</span></button>
             <button class="filter-tab" data-filter="confirmed" onclick="setFilter('confirmed')">Confirmed <span class="count" data-count="confirmed">(0)</span></button>
@@ -122,12 +122,6 @@
     <script src="bookings.js"></script>
     <script>
       document.getElementById('current-year').textContent = new Date().getFullYear();
-      // Show CTA after render if bookings exist
-      $(document).ready(function () {
-        if (getBookings().length > 0) {
-          $('#new-booking-cta').show();
-        }
-      });
     </script>
   </body>
 </html>
