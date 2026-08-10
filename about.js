@@ -2,24 +2,52 @@
 //  Interactive timeline with jQuery slideToggle/fadeIn transitions
 
 $(document).ready(function () {
-  // Render team grid
+  // Render team grid — same clickable card + modal pattern as the services page
   var $team = $('#team-grid');
   if ($team.length) {
-    var html = TEAM.map(function (m) {
+    $team.addClass('stagger');
+
+    var html = TEAM.map(function (m, i) {
       return '' +
-        '<div class="service-card glass overflow-hidden text-center">' +
-          '<div class="position-relative" style="height: 280px; overflow: hidden;">' +
-            '<img src="' + m.image + '" alt="' + m.name + '" class="w-100 h-100" style="object-fit: cover; transition: transform 0.5s ease;" loading="lazy" width="400" height="280">' +
+        '<div class="col-md-6 col-lg-4">' +
+        '<div class="service-card glass overflow-hidden text-center" data-member-index="' + i + '" data-bs-toggle="modal" data-bs-target="#teamModal" role="button" tabindex="0" aria-label="View bio for ' + m.name + '">' +
+          '<div class="position-relative service-card-img-wrap" style="height: 280px; overflow: hidden;">' +
+            '<img src="' + m.image + '" alt="' + m.name + '" class="w-100 h-100 service-card-img" style="object-fit: cover;" loading="lazy" width="400" height="280">' +
             '<div class="position-absolute" style="inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.5), transparent);"></div>' +
+            '<span class="service-card-expand"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg></span>' +
           '</div>' +
           '<div class="p-4">' +
             '<h3 class="fw-bold mb-1" style="color: var(--slate-900);">' + m.name + '</h3>' +
             '<p class="text-primary-600 fw-medium small mb-2">' + m.role + '</p>' +
             '<p class="small" style="color: var(--slate-600); line-height: 1.6;">' + m.bio + '</p>' +
           '</div>' +
+        '</div>' +
         '</div>';
     }).join('');
     $team.html(html);
+
+    $team.on('keydown', '.service-card', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        $(this).trigger('click');
+      }
+    });
+  }
+
+  // Populate the team member modal each time it's about to open
+  var $teamModal = $('#teamModal');
+  if ($teamModal.length) {
+    $teamModal.on('show.bs.modal', function (e) {
+      var $trigger = $(e.relatedTarget);
+      var i = $trigger.data('member-index');
+      var m = TEAM[i];
+      if (!m) return;
+
+      $teamModal.find('.service-modal-img').attr('src', m.image).attr('alt', m.name);
+      $teamModal.find('.service-modal-title').text(m.name);
+      $teamModal.find('.service-modal-role').text(m.role);
+      $teamModal.find('.service-modal-desc').text(m.bio);
+    });
   }
 
   //  Interactive timeline with jQuery slide/fade transitions
