@@ -10,7 +10,7 @@
     <link href="style.css" rel="stylesheet" />
   </head>
   <body>
-    <!-- Shared navbar with glassmorphism styling -->
+    <!--  Shared navbar with glassmorphism styling -->
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand" href="index.html">
@@ -33,7 +33,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               0161 394 0678
             </a>
-            <!-- Dark/Light theme toggle -->
+            <!--  Dark/Light theme toggle -->
             <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode"></button>
             <a href="contact.html" class="btn-primary-custom" style="font-size: 0.875rem; padding: 0.5rem 1.25rem;">Book a Repair</a>
           </div>
@@ -94,6 +94,20 @@
                     </div>
                   </li>
                 </ul>
+              </div>
+
+              <div class="glass p-4 animate-fade-in-up" style="animation-delay: 0.1s;">
+                <h3 class="fw-bold mb-3" style="color: var(--slate-900); font-size: 0.875rem;">Find us on the map</h3>
+                <div class="map-container mb-4">
+                  <img src="https://images.pexels.com/photos/12534264/pexels-photo-12534264.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Aerial view of Manchester city streets" loading="lazy" width="940" height="350">
+                  <div class="map-pin" style="top: 45%; left: 52%;" role="button" tabindex="0" aria-label="Circuit and Co workshop location">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#ef4444" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3" fill="#fff"/></svg>
+                    <div class="map-pin-popup">
+                      <strong>Circuit&Co Workshop</strong>
+                      <span>14 Deansgate, M3 4PR</span>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <div class="glass p-4 animate-fade-in-up" style="animation-delay: 0.1s;">
@@ -159,16 +173,28 @@
                     </div>
                   </div>
 
-                  <div class="form-group-custom mb-3" id="field-service">
-                    <label for="service" class="form-label-custom">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="field-icon" style="transition: color 0.2s;"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-                      Service needed <span class="required-star">*</span>
-                    </label>
-                    <select class="form-select-custom" id="service" name="service" required aria-required="true">
-                      <option value="">Select a service...</option>
-                    </select>
-                    <p id="service-hint" class="small mt-1 mb-0 fw-medium text-primary-600" style="display: none;"></p>
-                    <p class="field-error" id="error-service"></p>
+                  <div class="row g-4 mb-3">
+                    <div class="col-sm-6 form-group-custom" id="field-service">
+                      <label for="service" class="form-label-custom">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="field-icon" style="transition: color 0.2s;"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                        Service needed <span class="required-star">*</span>
+                      </label>
+                      <select class="form-select-custom" id="service" name="service" required aria-required="true">
+                        <option value="">Select a service...</option>
+                      </select>
+                      <p id="service-hint" class="small mt-1 mb-0 fw-medium text-primary-600" style="display: none;"></p>
+                      <p class="field-error" id="error-service"></p>
+                    </div>
+                    <div class="col-sm-6 form-group-custom" id="field-urgency">
+                      <label for="urgency" class="form-label-custom">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="field-icon" style="transition: color 0.2s;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        Urgency level
+                      </label>
+                      <select class="form-select-custom" id="urgency" name="urgency">
+                        <option value="standard">Standard (normal turnaround)</option>
+                      </select>
+                      <p class="small mt-1 mb-0" style="color: var(--slate-500);">Faster turnaround increases the price.</p>
+                    </div>
                   </div>
 
                   <div class="row g-4 mb-3">
@@ -204,6 +230,38 @@
                     </div>
                   </div>
 
+                  <!--  Dynamic pricing summary -->
+                  <div class="pricing-summary mb-3" id="pricing-summary" style="display: none;">
+                    <h3 class="fw-bold mb-3" style="color: var(--slate-900); font-size: 0.875rem;">Price estimate</h3>
+                    <div class="pricing-row">
+                      <span class="label">Base price</span>
+                      <span class="value" id="price-base">£0.00</span>
+                    </div>
+                    <div class="pricing-row">
+                      <span class="label">Urgency multiplier</span>
+                      <span class="value" id="price-urgency">×1.0</span>
+                    </div>
+                    <div class="pricing-row">
+                      <span class="label">Subtotal</span>
+                      <span class="value" id="price-subtotal">£0.00</span>
+                    </div>
+                    <div class="pricing-row discount" id="price-discount-row" style="display: none;">
+                      <span class="label">Promo discount</span>
+                      <span class="value" id="price-discount">-£0.00</span>
+                    </div>
+                    <div class="pricing-row total">
+                      <span class="label">Estimated total</span>
+                      <span class="value" id="price-total">£0.00</span>
+                    </div>
+
+                    <!--  Promo code engine -->
+                    <div class="promo-input-group">
+                      <input type="text" id="promo-code" placeholder="Enter promo code" aria-label="Promo code">
+                      <button type="button" class="promo-btn" id="promo-apply">Apply</button>
+                    </div>
+                    <p class="promo-message" id="promo-message"></p>
+                  </div>
+
                   <div class="d-flex align-items-center justify-content-between pt-3" style="border-top: 1px solid var(--slate-100);">
                     <p class="small mb-0" style="color: var(--slate-500);"><span class="required-star">*</span> Required fields</p>
                     <button type="submit" class="btn-primary-custom" id="submitBtn">
@@ -219,6 +277,7 @@
       </section>
     </main>
 
+    <!--  Shared footer -->
     <footer class="footer-custom py-5">
       <div class="container">
         <div class="row g-4">
@@ -263,11 +322,16 @@
       </div>
     </footer>
 
+    <!--  Back-to-top button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="data.js"></script>
     <script src="app.js"></script>
-    <script src="contact.js"></script>
+    <script src="contacts.js"></script>
     <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
   </body>
 </html>
