@@ -1,10 +1,13 @@
-// ===== sessionStorage helpers (Client-side data storage) =====
+// ===== localStorage helpers (Client-side data storage) =====
+// Note: previously used sessionStorage, which only persists for a single
+// browser tab and is cleared on tab close / new tab. Switched to
+// localStorage so bookings persist on this device across tabs and reloads.
 
 var STORAGE_KEY = 'circuit_co_bookings';
 
 function getBookings() {
   try {
-    var raw = sessionStorage.getItem(STORAGE_KEY);
+    var raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return [];
     var parsed = JSON.parse(raw);
     return Array.isArray(parsed) ? parsed : [];
@@ -16,19 +19,19 @@ function getBookings() {
 function saveBooking(booking) {
   var bookings = getBookings();
   bookings.unshift(booking);
-  sessionStorage.setItem(STORAGE_KEY, JSON.stringify(bookings));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(bookings));
 }
 
 function deleteBooking(id) {
   var bookings = getBookings().filter(function (b) { return b.id !== id; });
-  sessionStorage.setItem(STORAGE_KEY, JSON.stringify(bookings));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(bookings));
 }
 
 function updateBookingStatus(id, status) {
   var bookings = getBookings().map(function (b) {
     return b.id === id ? Object.assign({}, b, { status: status }) : b;
   });
-  sessionStorage.setItem(STORAGE_KEY, JSON.stringify(bookings));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(bookings));
 }
 
 function generateId() {
