@@ -171,6 +171,48 @@
                     <p class="field-error" id="error-service"></p>
                   </div>
 
+                  <div class="form-group-custom mb-3" id="field-urgency">
+                    <label for="urgency" class="form-label-custom">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="field-icon" style="transition: color 0.2s;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                      Urgency
+                    </label>
+                    <select class="form-select-custom" id="urgency" name="urgency">
+                    </select>
+                    <p class="field-error" id="error-urgency"></p>
+                  </div>
+
+                  <div class="form-group-custom mb-3" id="field-promo">
+                    <label for="promo-code" class="form-label-custom">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="field-icon" style="transition: color 0.2s;"><path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                      Promo code
+                    </label>
+                    <div class="d-flex gap-2">
+                      <input type="text" class="form-control-custom" id="promo-code" name="promoCode" placeholder="e.g. WELCOME" style="text-transform: uppercase;" />
+                      <button type="button" class="btn-secondary-custom" id="promo-apply" style="white-space: nowrap;">Apply</button>
+                    </div>
+                    <p class="small mt-1 mb-0" id="promo-message"></p>
+                  </div>
+
+                  <div class="glass p-3 mb-4" id="pricing-summary" style="display: none;">
+                    <dl class="row mb-0 small">
+                      <dt class="col-7" style="color: var(--slate-500);">Base price:</dt>
+                      <dd class="col-5 text-end fw-semibold" id="price-base" style="color: var(--slate-800);">£0.00</dd>
+                      <dt class="col-7" style="color: var(--slate-500);">Urgency multiplier:</dt>
+                      <dd class="col-5 text-end fw-semibold" id="price-urgency" style="color: var(--slate-800);">×1.0</dd>
+                      <dt class="col-7" style="color: var(--slate-500);">Subtotal:</dt>
+                      <dd class="col-5 text-end fw-semibold" id="price-subtotal" style="color: var(--slate-800);">£0.00</dd>
+                    </dl>
+                    <dl class="row mb-0 small" id="price-discount-row" style="display: none;">
+                      <dt class="col-7" style="color: var(--slate-500);">Promo discount:</dt>
+                      <dd class="col-5 text-end fw-semibold" id="price-discount" style="color: var(--success-600);">-£0.00</dd>
+                    </dl>
+                    <hr class="my-2" />
+                    <dl class="row mb-0" style="color: var(--slate-900);">
+                      <dt class="col-7 fw-bold">Estimated total:</dt>
+                      <dd class="col-5 text-end fw-bold" id="price-total">£0.00</dd>
+                    </dl>
+                  </div>
+
                   <div class="row g-4 mb-3">
                     <div class="col-sm-6 form-group-custom" id="field-date">
                       <label for="date" class="form-label-custom">
