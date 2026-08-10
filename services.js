@@ -15,18 +15,21 @@ $(document).ready(function () {
 
   var $grid = $('#service-grid');
   if ($grid.length) {
+    $grid.addClass('stagger');
+
     var html = SERVICES.map(function (s) {
       var featuresHtml = s.features.map(function (f) {
         return '<li class="d-flex align-items-start gap-2 small" style="color: var(--slate-700);">' + checkIcon + ' ' + f + '</li>';
       }).join('');
 
       return '' +
-        '<div class="service-card glass overflow-hidden">' +
-          '<div class="position-relative" style="height: 200px; overflow: hidden;">' +
-            '<img src="' + s.image + '" alt="' + s.name + '" class="w-100 h-100" style="object-fit: cover; transition: transform 0.5s ease;" loading="lazy">' +
+        '<div class="col-md-6 col-lg-4">' +
+        '<div class="service-card glass overflow-hidden" data-service-id="' + s.id + '" data-bs-toggle="modal" data-bs-target="#serviceModal" role="button" tabindex="0" aria-label="View details for ' + s.name + '">' +
+          '<div class="position-relative service-card-img-wrap" style="height: 200px; overflow: hidden;">' +
+            '<img src="' + s.image + '" alt="' + s.name + '" class="w-100 h-100 service-card-img" style="object-fit: cover;" loading="lazy">' +
             '<div class="position-absolute inset-0" style="background: linear-gradient(to top, rgba(15,23,42,0.6), transparent); inset: 0;"></div>' +
             '<div class="position-absolute bottom-0 start-0 p-3 d-flex align-items-center gap-2">' +
-              '<div class="d-flex align-items-center justify-content-center rounded-3 text-white" style="width: 48px; height: 48px; background: rgba(255,255,255,0.9); backdrop-filter: blur(8px); color: var(--primary-600);">' + (icons[s.icon] || icons['laptop']) + '</div>' +
+              '<div class="d-flex align-items-center justify-content-center rounded-3 text-white service-card-icon" style="width: 48px; height: 48px; background: rgba(255,255,255,0.9); backdrop-filter: blur(8px); color: var(--primary-600);">' + (icons[s.icon] || icons['laptop']) + '</div>' +
               '<div class="text-white">' +
                 '<h3 class="fs-5 fw-bold mb-0">' + s.name + '</h3>' +
                 '<p class="small mb-0 d-flex align-items-center gap-1" style="color: rgba(255,255,255,0.8);">' +
@@ -35,17 +38,59 @@ $(document).ready(function () {
                 '</p>' +
               '</div>' +
             '</div>' +
+            '<span class="service-card-expand"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg></span>' +
           '</div>' +
           '<div class="p-4">' +
             '<p style="color: var(--slate-600); line-height: 1.6;" class="mb-3">' + s.description + '</p>' +
             '<ul class="list-unstyled d-flex flex-column gap-2 mb-3">' + featuresHtml + '</ul>' +
             '<div class="d-flex align-items-center justify-content-between pt-3" style="border-top: 1px solid var(--slate-100);">' +
               '<span class="fs-4 fw-bold" style="color: var(--slate-900);">' + s.price + '</span>' +
-              '<a href="contact.html" class="btn-primary-custom" style="font-size: 0.875rem; padding: 0.5rem 1.25rem;">Book this service</a>' +
+              '<a href="contact.html?service=' + s.id + '" class="btn-primary-custom service-card-book" style="font-size: 0.875rem; padding: 0.5rem 1.25rem;">Book this service</a>' +
             '</div>' +
           '</div>' +
+        '</div>' +
         '</div>';
     }).join('');
     $grid.html(html);
+
+    // Keep the "Book this service" link from also popping the modal open,
+    // and stop it re-triggering the card's own click animation.
+    $grid.on('click', '.service-card-book', function (e) {
+      e.stopPropagation();
+    });
+
+    // Let Enter/Space activate a focused card exactly like a click,
+    // since it's a div acting as a button.
+    $grid.on('keydown', '.service-card', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        $(this).trigger('click');
+      }
+    });
+  }
+
+  // Populate the detail modal each time it's about to open, based on
+  // whichever card triggered it.
+  var $modal = $('#serviceModal');
+  if ($modal.length) {
+    $modal.on('show.bs.modal', function (e) {
+      var $trigger = $(e.relatedTarget);
+      var id = $trigger.data('service-id');
+      var s = SERVICES.find(function (item) { return item.id === id; });
+      if (!s) return;
+
+      var featuresHtml = s.features.map(function (f) {
+        return '<li class="d-flex align-items-start gap-2 small" style="color: var(--slate-700);">' + checkIcon + ' ' + f + '</li>';
+      }).join('');
+
+      $modal.find('.service-modal-img').attr('src', s.image).attr('alt', s.name);
+      $modal.find('.service-modal-icon').html(icons[s.icon] || icons['laptop']);
+      $modal.find('.service-modal-title').text(s.name);
+      $modal.find('.service-modal-turnaround').text(s.turnaround);
+      $modal.find('.service-modal-desc').text(s.description);
+      $modal.find('.service-modal-features').html(featuresHtml);
+      $modal.find('.service-modal-price').text(s.price);
+      $modal.find('.service-modal-book').attr('href', 'contact.html?service=' + s.id);
+    });
   }
 });
