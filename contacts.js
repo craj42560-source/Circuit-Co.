@@ -25,6 +25,7 @@ $(document).ready(function () {
     $serviceSelect.append('<option value="' + s.id + '">' + s.name + ' — ' + s.price + '</option>');
   });
 
+
   //  Populate urgency dropdown
   var $urgencySelect = $('#urgency');
   URGENCY_OPTIONS.forEach(function (u) {
@@ -278,6 +279,13 @@ $(document).ready(function () {
       $('.map-pin').removeClass('active');
     }
   });
+
+  // Pre-select a service if we arrived via a "Book this service" link
+  // from the services page, e.g. contact.html?service=phone-repair
+  var preselectId = new URLSearchParams(window.location.search).get('service');
+  if (preselectId && SERVICES.some(function (s) { return s.id === preselectId; })) {
+    $serviceSelect.val(preselectId).trigger('change');
+  }
 });
 
 function resetForm() {
