@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Our repair services — laptop, phone, data recovery, board-level soldering, virus removal, and business IT support." />
+    <title>Services | Circuit&Co Tech Repair</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!--  Shared navbar with glassmorphism styling -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <span class="brand-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
+          Circuit<span class="text-gradient">&Co</span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <div class="collapse navbar-collapse" id="navContent">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="bookings.html">My Bookings</a></li>
+          </ul>
+          <div class="d-flex align-items-center gap-3">
+            <a href="tel:+441613940678" class="d-none d-lg-flex align-items-center gap-1 text-decoration-none small fw-medium" style="color: var(--slate-600);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              0161 394 0678
+            </a>
+            <!--  Dark/Light theme toggle -->
+            <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode"></button>
+            <a href="contact.html" class="btn-primary-custom" style="font-size: 0.875rem; padding: 0.5rem 1.25rem;">Book a Repair</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main style="padding-top: 80px;">
+      <section class="py-3 pb-2">
+        <div class="container text-center" style="max-width: 600px; margin: 0 auto;">
+          <h1 class="display-4 fw-bold mb-3 animate-fade-in-up" style="color: var(--slate-900);">Our <span class="text-gradient">Services</span></h1>
+          <p class="fs-5 animate-fade-in-up" style="color: var(--slate-600); animation-delay: 0.1s;">Comprehensive repair services for every device. All work is backed by our 12-month warranty and a no-fix, no-fee guarantee.</p>
+        </div>
+      </section>
+
+      <section class="py-4">
+        <div class="container">
+          <div class="row g-4" id="service-grid"></div>
+        </div>
+      </section>
+
+      <section class="py-5">
+        <div class="container">
+          <div class="text-center mb-5" style="max-width: 600px; margin: 0 auto;">
+            <h2 class="display-6 fw-bold mb-3" style="color: var(--slate-900);">How it <span class="text-gradient">works</span></h2>
+            <p class="fs-5" style="color: var(--slate-600);">Four simple steps from broken to fixed.</p>
+          </div>
+          <div class="row g-4 stagger">
+            <div class="col-sm-6 col-lg-3">
+              <div class="glass p-4 text-center position-relative">
+                <span class="position-absolute fw-bold" style="top: 16px; right: 16px; font-size: 3rem; color: var(--primary-100);">01</span>
+                <div class="position-relative">
+                  <h3 class="fw-bold mb-2" style="color: var(--slate-900);">Book online</h3>
+                  <p class="small mb-0" style="color: var(--slate-600); line-height: 1.6;">Fill out our booking form with your device details and preferred time slot.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+              <div class="glass p-4 text-center position-relative">
+                <span class="position-absolute fw-bold" style="top: 16px; right: 16px; font-size: 3rem; color: var(--primary-100);">02</span>
+                <div class="position-relative">
+                  <h3 class="fw-bold mb-2" style="color: var(--slate-900);">Free diagnostic</h3>
+                  <p class="small mb-0" style="color: var(--slate-600); line-height: 1.6;">Bring your device in. We diagnose the issue and give you an honest quote.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+              <div class="glass p-4 text-center position-relative">
+                <span class="position-absolute fw-bold" style="top: 16px; right: 16px; font-size: 3rem; color: var(--primary-100);">03</span>
+                <div class="position-relative">
+                  <h3 class="fw-bold mb-2" style="color: var(--slate-900);">We repair</h3>
+                  <p class="small mb-0" style="color: var(--slate-600); line-height: 1.6;">Once approved, our certified technicians get to work with genuine-grade parts.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+              <div class="glass p-4 text-center position-relative">
+                <span class="position-absolute fw-bold" style="top: 16px; right: 16px; font-size: 3rem; color: var(--primary-100);">04</span>
+                <div class="position-relative">
+                  <h3 class="fw-bold mb-2" style="color: var(--slate-900);">Collect &amp; go</h3>
+                  <p class="small mb-0" style="color: var(--slate-600); line-height: 1.6;">Pick up your repaired device with a 12-month warranty. Simple.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-4 pb-5">
+        <div class="container">
+          <div class="glass-strong p-5 text-center">
+            <h2 class="fs-3 fw-bold mb-3" style="color: var(--slate-900);">Not sure what your device needs?</h2>
+            <p class="mb-4" style="color: var(--slate-600); max-width: 500px; margin: 0 auto;">Bring it in for a free diagnostic. We will tell you exactly what is wrong and what it costs — no obligation.</p>
+            <a href="contact.html" class="btn-primary-custom">
+              Book a free diagnostic
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 5 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--  Shared footer -->
+    <footer class="footer-custom py-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <a class="navbar-brand text-white mb-3 d-flex align-items-center gap-2" href="index.html">
+              <span class="brand-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
+              Circuit&Co
+            </a>
+            <p class="small" style="color: var(--slate-400); line-height: 1.6; max-width: 280px;">Independent tech repair specialists in Manchester. Board-level expertise, honest pricing, and a 12-month warranty on every repair.</p>
+            <div class="d-flex gap-2 mt-3">
+              <a href="#" class="footer-social" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="footer-social" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" class="footer-social" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            </div>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h3>Quick Links</h3>
+            <ul class="list-unstyled d-flex flex-column gap-2 small">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact &amp; Booking</a></li>
+              <li><a href="bookings.html">My Bookings</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-3">
+            <h3>Services</h3>
+            <ul class="list-unstyled d-flex flex-column gap-2 small">
+              <li>Laptop &amp; PC Repair</li><li>Phone &amp; Tablet Repair</li><li>Data Recovery</li><li>Board-Level Soldering</li><li>Virus &amp; Malware Removal</li><li>Business IT Support</li>
+            </ul>
+          </div>
+          <div class="col-lg-3">
+            <h3>Get in Touch</h3>
+            <ul class="list-unstyled d-flex flex-column gap-2 small">
+              <li class="d-flex align-items-start gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 2px; flex-shrink: 0;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> 14 Deansgate, Manchester M3 4PR</li>
+              <li class="d-flex align-items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> <a href="tel:+441613940678">0161 394 0678</a></li>
+              <li class="d-flex align-items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> <a href="mailto:hello@circuitandco.co.uk">hello@circuitandco.co.uk</a></li>
+              <li class="d-flex align-items-start gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 2px; flex-shrink: 0;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Mon–Sat: 9am–6pm<br>Sun: Closed</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-4 pt-3 d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2 small" style="border-top: 1px solid var(--slate-800); color: var(--slate-500);">
+          <p class="mb-0">&copy; <span id="current-year"></span> Circuit&Co Tech Repair. All rights reserved.</p>
+          <p class="mb-0">Designed &amp; built with care in Manchester.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!--  Back-to-top button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/data.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/services.js"></script>
+    <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
+  </body>
+</html>
