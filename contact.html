@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Book a repair with Circuit&Co. Fill out our booking form with your device details and preferred time slot." />
+    <title>Book a Repair | Circuit&Co Tech Repair</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!--  Shared navbar with glassmorphism styling -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <span class="brand-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
+          Circuit<span class="text-gradient">&Co</span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <div class="collapse navbar-collapse" id="navContent">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="bookings.html">My Bookings</a></li>
+          </ul>
+          <div class="d-flex align-items-center gap-3">
+            <a href="tel:+441613940678" class="d-none d-lg-flex align-items-center gap-1 text-decoration-none small fw-medium" style="color: var(--slate-600);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              0161 394 0678
+            </a>
+            <!--  Dark/Light theme toggle -->
+            <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode"></button>
+            <a href="contact.html" class="btn-primary-custom" style="font-size: 0.875rem; padding: 0.5rem 1.25rem;">Book a Repair</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main style="padding-top: 80px;" id="contact-content">
+      <section class="py-3 pb-2">
+        <div class="container text-center" style="max-width: 600px; margin: 0 auto;">
+          <h1 class="display-4 fw-bold mb-3 animate-fade-in-up" style="color: var(--slate-900);">Book a <span class="text-gradient">Repair</span></h1>
+          <p class="fs-5 animate-fade-in-up" style="color: var(--slate-600); animation-delay: 0.1s;">Fill out the form below and we will confirm your slot within 2 hours during opening times.</p>
+        </div>
+      </section>
+
+      <section class="pb-5">
+        <div class="container">
+          <div class="row g-4">
+            <!-- Sidebar -->
+            <aside class="col-lg-4">
+              <div class="glass p-4 mb-3 animate-fade-in-up">
+                <h2 class="fw-bold mb-4" style="color: var(--slate-900); font-size: 1.125rem;">Contact details</h2>
+                <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+                  <li class="d-flex align-items-start gap-3">
+                    <div class="d-flex align-items-center justify-content-center rounded-3 shrink-0" style="width: 40px; height: 40px; background: var(--primary-100); color: var(--primary-600);">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <div>
+                      <p class="fw-semibold small mb-0" style="color: var(--slate-800);">Visit us</p>
+                      <p class="small mb-0" style="color: var(--slate-500);">14 Deansgate, Manchester M3 4PR</p>
+                    </div>
+                  </li>
+                  <li class="d-flex align-items-start gap-3">
+                    <div class="d-flex align-items-center justify-content-center rounded-3 shrink-0" style="width: 40px; height: 40px; background: var(--primary-100); color: var(--primary-600);">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <div>
+                      <p class="fw-semibold small mb-0" style="color: var(--slate-800);">Call us</p>
+                      <a href="tel:+441613940678" class="small text-decoration-none" style="color: var(--slate-500);">0161 394 0678</a>
+                    </div>
+                  </li>
+                  <li class="d-flex align-items-start gap-3">
+                    <div class="d-flex align-items-center justify-content-center rounded-3 shrink-0" style="width: 40px; height: 40px; background: var(--primary-100); color: var(--primary-600);">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <div>
+                      <p class="fw-semibold small mb-0" style="color: var(--slate-800);">Email us</p>
+                      <a href="mailto:hello@circuitandco.co.uk" class="small text-decoration-none" style="color: var(--slate-500);">hello@circuitandco.co.uk</a>
+                    </div>
+                  </li>
+                  <li class="d-flex align-items-start gap-3">
+                    <div class="d-flex align-items-center justify-content-center rounded-3 shrink-0" style="width: 40px; height: 40px; background: var(--primary-100); color: var(--primary-600);">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div>
+                      <p class="fw-semibold small mb-0" style="color: var(--slate-800);">Opening hours</p>
+                      <p class="small mb-0" style="color: var(--slate-500);">Mon–Sat: 9am–6pm<br>Sunday: Closed</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="glass p-4 animate-fade-in-up" style="animation-delay: 0.1s;">
+                <h3 class="fw-bold mb-3" style="color: var(--slate-900); font-size: 0.875rem;">Find us on the map</h3>
+                <div class="map-container mb-4">
+                  <img src="https://images.pexels.com/photos/12534264/pexels-photo-12534264.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Aerial view of Manchester city streets" loading="lazy" width="940" height="350">
+                  <div class="map-pin" style="top: 45%; left: 52%;" role="button" tabindex="0" aria-label="Circuit and Co workshop location">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#ef4444" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3" fill="#fff"/></svg>
+                    <div class="map-pin-popup">
+                      <strong>Circuit&Co Workshop</strong>
+                      <span>14 Deansgate, M3 4PR</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="glass p-4 animate-fade-in-up" style="animation-delay: 0.1s;">
+                <h3 class="fw-bold mb-3" style="color: var(--slate-900); font-size: 0.875rem;">What happens next?</h3>
+                <ol class="list-unstyled d-flex flex-column gap-3 small mb-0" style="color: var(--slate-600);">
+                  <li class="d-flex gap-2">
+                    <span class="d-flex align-items-center justify-content-center rounded-circle fw-bold shrink-0" style="width: 24px; height: 24px; background: var(--primary-100); color: var(--primary-600); font-size: 0.75rem;">1</span>
+                    We confirm your slot by phone or email.
+                  </li>
+                  <li class="d-flex gap-2">
+                    <span class="d-flex align-items-center justify-content-center rounded-circle fw-bold shrink-0" style="width: 24px; height: 24px; background: var(--primary-100); color: var(--primary-600); font-size: 0.75rem;">2</span>
+                    Bring your device in at your booked time.
+                  </li>
+                  <li class="d-flex gap-2">
+                    <span class="d-flex align-items-center justify-content-center rounded-circle fw-bold shrink-0" style="width: 24px; height: 24px; background: var(--primary-100); color: var(--primary-600); font-size: 0.75rem;">3</span>
+                    Free diagnostic and honest quote on the spot.
+                  </li>
+                </ol>
+              </div>
+            </aside>
+
+            <!-- Form -->
+            <div class="col-lg-8 animate-fade-in-up" style="animation-delay: 0.15s;">
+              <div class="glass-strong p-4 p-lg-5">
+                <form id="bookingForm" novalidate>
+                  <h2 class="fs-4 fw-bold mb-4" style="color: var(--slate-900);">Repair booking form</h2>
+
+                  <div class="row g-4 mb-3">
+                    <div class="col-sm-6 form-group-custom" id="field-name">
+                      <label for="name" class="form-label-custom">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="field-icon" style="transition: color 0.2s;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        Full name <span class="required-star">*</span>
+                      </label>
+                      <input type="text" class="form-control-custom" id="name" name="name" placeholder="Jane Smith" required aria-required="true" />
+                      <p class="field-error" id="error-name"></p>
+                    </div>
+                    <div class="col-sm-6 form-group-custom" id="field-email">
+                      <label for="email" class="form-label-custom">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="field-icon" style="transition: color 0.2s;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        Email address <span class="required-star">*</span>
+                      </label>
+                      <input type="email" class="form-control-custom" id="email" name="email" placeholder="jane@example.com" required aria-required="true" />
+                      <p class="field-error" id="error-email"></p>
+                    </div>
+                  </div>
+
+                  <div class="row g-4 mb-3">
+                    <div class="col-sm-6 form-group-custom" id="field-phone">
+                      <label for="phone" class="form-label-custom">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="field-icon" style="transition: color 0.2s;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        Phone number <span class="required-star">*</span>
+                      </label>
+                      <input type="tel" class="form-control-custom" id="phone" name="phone" placeholder="07123 456789" required aria-required="true" />
+                      <p class="field-error" id="error-phone"></p>
+                    </div>
+                    <div class="col-sm-6 form-group-custom" id="field-deviceType">
+                      <label for="deviceType" class="form-label-custom">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="field-icon" style="transition: color 0.2s;"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+                        Device type &amp; model <span class="required-star">*</span>
+                      </label>
+                      <input type="text" class="form-control-custom" id="deviceType" name="deviceType" placeholder="e.g. MacBook Pro 2021, iPhone 14" required aria-required="true" />
+                      <p class="field-error" id="error-deviceType"></p>
+                    </div>
+                  </div>
+
+                  <div class="row g-4 mb-3">
+                    <div class="col-sm-6 form-group-custom" id="field-service">
+                      <label for="service" class="form-label-custom">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="field-icon" style="transition: color 0.2s;"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                        Service needed <span class="required-star">*</span>
+                      </label>
+                      <select class="form-select-custom" id="service" name="service" required aria-required="true">
+                        <option value="">Select a service...</option>
+                      </select>
+                      <p id="service-hint" class="small mt-1 mb-0 fw-medium text-primary-600" style="display: none;"></p>
+                      <p class="field-error" id="error-service"></p>
+                    </div>
+                    <div class="col-sm-6 form-group-custom" id="field-urgency">
+                      <label for="urgency" class="form-label-custom">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="field-icon" style="transition: color 0.2s;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        Urgency level
+                      </label>
+                      <select class="form-select-custom" id="urgency" name="urgency">
+                        <option value="standard">Standard (normal turnaround)</option>
+                      </select>
+                      <p class="small mt-1 mb-0" style="color: var(--slate-500);">Faster turnaround increases the price.</p>
+                    </div>
+                  </div>
+
+                  <div class="row g-4 mb-3">
+                    <div class="col-sm-6 form-group-custom" id="field-date">
+                      <label for="date" class="form-label-custom">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="field-icon" style="transition: color 0.2s;"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        Preferred date <span class="required-star">*</span>
+                      </label>
+                      <input type="date" class="form-control-custom" id="date" name="date" required aria-required="true" />
+                      <p class="field-error" id="error-date"></p>
+                    </div>
+                    <div class="col-sm-6 form-group-custom" id="field-time">
+                      <label for="time" class="form-label-custom">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="field-icon" style="transition: color 0.2s;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        Preferred time <span class="required-star">*</span>
+                      </label>
+                      <select class="form-select-custom" id="time" name="time" required aria-required="true">
+                        <option value="">Select a time...</option>
+                      </select>
+                      <p class="field-error" id="error-time"></p>
+                    </div>
+                  </div>
+
+                  <div class="form-group-custom mb-4" id="field-message">
+                    <label for="message" class="form-label-custom">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="field-icon" style="transition: color 0.2s;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                      Describe the problem (optional)
+                    </label>
+                    <textarea class="form-control-custom" id="message" name="message" placeholder="e.g. Screen is cracked in the top-left corner and touch is not responding in that area..." maxlength="500" rows="4" style="min-height: 120px; resize: vertical;"></textarea>
+                    <div class="d-flex justify-content-between align-items-center mt-1">
+                      <p class="field-error" id="error-message"></p>
+                      <span id="char-count" class="small" style="color: var(--slate-500); font-size: 0.75rem;">500 characters remaining</span>
+                    </div>
+                  </div>
+
+                  <!--  Dynamic pricing summary -->
+                  <div class="pricing-summary mb-3" id="pricing-summary" style="display: none;">
+                    <h3 class="fw-bold mb-3" style="color: var(--slate-900); font-size: 0.875rem;">Price estimate</h3>
+                    <div class="pricing-row">
+                      <span class="label">Base price</span>
+                      <span class="value" id="price-base">£0.00</span>
+                    </div>
+                    <div class="pricing-row">
+                      <span class="label">Urgency multiplier</span>
+                      <span class="value" id="price-urgency">×1.0</span>
+                    </div>
+                    <div class="pricing-row">
+                      <span class="label">Subtotal</span>
+                      <span class="value" id="price-subtotal">£0.00</span>
+                    </div>
+                    <div class="pricing-row discount" id="price-discount-row" style="display: none;">
+                      <span class="label">Promo discount</span>
+                      <span class="value" id="price-discount">-£0.00</span>
+                    </div>
+                    <div class="pricing-row total">
+                      <span class="label">Estimated total</span>
+                      <span class="value" id="price-total">£0.00</span>
+                    </div>
+
+                    <!--  Promo code engine -->
+                    <div class="promo-input-group">
+                      <input type="text" id="promo-code" placeholder="Enter promo code" aria-label="Promo code">
+                      <button type="button" class="promo-btn" id="promo-apply">Apply</button>
+                    </div>
+                    <p class="promo-message" id="promo-message"></p>
+                  </div>
+
+                  <div class="d-flex align-items-center justify-content-between pt-3" style="border-top: 1px solid var(--slate-100);">
+                    <p class="small mb-0" style="color: var(--slate-500);"><span class="required-star">*</span> Required fields</p>
+                    <button type="submit" class="btn-primary-custom" id="submitBtn">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                      Submit Booking
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--  Shared footer -->
+    <footer class="footer-custom py-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <a class="navbar-brand text-white mb-3 d-flex align-items-center gap-2" href="index.html">
+              <span class="brand-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
+              Circuit&Co
+            </a>
+            <p class="small" style="color: var(--slate-400); line-height: 1.6; max-width: 280px;">Independent tech repair specialists in Manchester. Board-level expertise, honest pricing, and a 12-month warranty on every repair.</p>
+            <div class="d-flex gap-2 mt-3">
+              <a href="#" class="footer-social" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="footer-social" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" class="footer-social" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            </div>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h3>Quick Links</h3>
+            <ul class="list-unstyled d-flex flex-column gap-2 small">
+              <li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact &amp; Booking</a></li><li><a href="bookings.html">My Bookings</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-3">
+            <h3>Services</h3>
+            <ul class="list-unstyled d-flex flex-column gap-2 small">
+              <li>Laptop &amp; PC Repair</li><li>Phone &amp; Tablet Repair</li><li>Data Recovery</li><li>Board-Level Soldering</li><li>Virus &amp; Malware Removal</li><li>Business IT Support</li>
+            </ul>
+          </div>
+          <div class="col-lg-3">
+            <h3>Get in Touch</h3>
+            <ul class="list-unstyled d-flex flex-column gap-2 small">
+              <li class="d-flex align-items-start gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 2px; flex-shrink: 0;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> 14 Deansgate, Manchester M3 4PR</li>
+              <li class="d-flex align-items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> <a href="tel:+441613940678">0161 394 0678</a></li>
+              <li class="d-flex align-items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> <a href="mailto:hello@circuitandco.co.uk">hello@circuitandco.co.uk</a></li>
+              <li class="d-flex align-items-start gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 2px; flex-shrink: 0;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Mon–Sat: 9am–6pm<br>Sun: Closed</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-4 pt-3 d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2 small" style="border-top: 1px solid var(--slate-800); color: var(--slate-500);">
+          <p class="mb-0">&copy; <span id="current-year"></span> Circuit&Co Tech Repair. All rights reserved.</p>
+          <p class="mb-0">Designed &amp; built with care in Manchester.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!--  Back-to-top button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    <script src="contact.js"></script>
+    <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
+  </body>
+</html>
