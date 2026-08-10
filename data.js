@@ -108,19 +108,19 @@ const SERVICES = [
 
 const TESTIMONIALS = [
   {
-    name: 'Raj Chaudhary',
-    role: 'University Student',
-    text: 'My laptop died the morning of a class presentation. Circuit & Co. recovered all my files and had me back up in 3 hours. Lifesavers.',
+    name: 'Sarah Mitchell',
+    role: 'Small Business Owner',
+    text: 'My laptop died the morning of a client pitch. Circuit & Co. recovered all my files and had me back up in 3 hours. Lifesavers.',
     rating: 5
   },
   {
-    name: 'Shishir Sapkota',
-    role: 'University Student',
-    text: 'A corrupted SD card wiped an entire project file. Their data recovery team got back every single photo. I almost cried.',
+    name: 'James Okafor',
+    role: 'Photographer',
+    text: 'A corrupted SD card wiped an entire wedding shoot. Their data recovery team got back every single photo. I almost cried.',
     rating: 5
   },
   {
-    name: 'Simant Pokhrel',
+    name: 'Priya Sharma',
     role: 'University Student',
     text: 'Cracked my phone screen the week of exams. Fixed in under an hour for half what the high-street chains quoted. Brilliant.',
     rating: 5
