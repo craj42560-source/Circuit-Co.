@@ -316,22 +316,24 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 2;
   width: 32px;
   height: 32px;
+  padding: 0;
   border: 0;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(8px);
   opacity: 1;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   color: var(--primary-600);
-  font-size: 20px;
   cursor: pointer;
 }
 .service-modal-close:hover {
   background: rgba(255, 255, 255, 0.95);
+}
+.service-modal-close svg {
+  width: 18px;
+  height: 18px;
 }
 .service-icon-wrap {
   display: flex;
@@ -647,7 +649,7 @@ textarea:focus-visible {
 }
 [data-theme="dark"] .service-modal-close {
   background: rgba(51, 65, 85, 0.85);
-  color: var(--slate-100);
+  color: var(--primary-400, var(--primary-500));
 }
 [data-theme="dark"] .service-card-expand {
   background: rgba(30, 41, 59, 0.85);
