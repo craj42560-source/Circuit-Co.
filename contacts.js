@@ -1,6 +1,5 @@
 // ===== Contact page JS =====
-//  Dynamic pricing formula, promo code engine, sessionStorage
-//  Map pin popups
+// Dynamic pricing formula, promo code engine, sessionStorage, map pin popups
 
 $(document).ready(function () {
   var form = document.getElementById('bookingForm');
@@ -21,16 +20,19 @@ $(document).ready(function () {
 
   // Populate service dropdown
   var $serviceSelect = $('#service');
-  SERVICES.forEach(function (s) {
-    $serviceSelect.append('<option value="' + s.id + '">' + s.name + ' — ' + s.price + '</option>');
-  });
+  if (typeof SERVICES !== 'undefined') {
+    SERVICES.forEach(function (s) {
+      $serviceSelect.append('<option value="' + s.id + '">' + s.name + ' — ' + s.price + '</option>');
+    });
+  }
 
-
-  //  Populate urgency dropdown
+  // Populate urgency dropdown
   var $urgencySelect = $('#urgency');
-  URGENCY_OPTIONS.forEach(function (u) {
-    $urgencySelect.append('<option value="' + u.id + '">' + u.label + '</option>');
-  });
+  if (typeof URGENCY_OPTIONS !== 'undefined') {
+    URGENCY_OPTIONS.forEach(function (u) {
+      $urgencySelect.append('<option value="' + u.id + '">' + u.label + '</option>');
+    });
+  }
 
   // jQuery: character counter for message field
   $('#message').on('input', function () {
@@ -63,21 +65,20 @@ $(document).ready(function () {
     updatePricing();
   });
 
-  //  Update pricing when urgency changes
+  // Update pricing when urgency changes
   $('#urgency').on('change', function () {
     updatePricing();
   });
 
-  // =====  Dynamic pricing formula =====
-  // Formula: base price × urgency multiplier − promo discount
+  // ===== Dynamic pricing formula =====
   var currentPromo = null;
 
   function updatePricing() {
     var serviceId = $('#service').val();
     var urgencyId = $('#urgency').val() || 'standard';
 
-    var basePrice = SERVICE_PRICES[serviceId] || 0;
-    var urgencyOption = URGENCY_OPTIONS.find(function (u) { return u.id === urgencyId; });
+    var basePrice = (typeof SERVICE_PRICES !== 'undefined' && SERVICE_PRICES[serviceId]) ? SERVICE_PRICES[serviceId] : 0;
+    var urgencyOption = typeof URGENCY_OPTIONS !== 'undefined' ? URGENCY_OPTIONS.find(function (u) { return u.id === urgencyId; }) : null;
     var multiplier = urgencyOption ? urgencyOption.multiplier : 1.0;
 
     var subtotal = basePrice * multiplier;
@@ -114,7 +115,7 @@ $(document).ready(function () {
     }
   }
 
-  // =====  Promo code engine =====
+  // ===== Promo code engine =====
   $('#promo-apply').on('click', function () {
     var code = $('#promo-code').val().trim().toUpperCase();
     var $msg = $('#promo-message');
@@ -124,7 +125,7 @@ $(document).ready(function () {
       return;
     }
 
-    if (PROMO_CODES[code]) {
+    if (typeof PROMO_CODES !== 'undefined' && PROMO_CODES[code]) {
       currentPromo = PROMO_CODES[code];
       $msg.removeClass('error').addClass('success').text('Promo applied: ' + currentPromo.label + '!');
       $('#promo-code').prop('disabled', true);
@@ -137,7 +138,60 @@ $(document).ready(function () {
     }
   });
 
-  // Live validation on blur
+  // Validation functions
+  function validateField(field, value) {
+    var error = '';
+    value = value ? value.trim() : '';
+
+    switch (field) {
+      case 'name':
+        if (!value) error = 'Please enter your full name';
+        break;
+      case 'email':
+        if (!value) {
+          error = 'Please enter your email address';
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+          error = 'Please enter a valid email address';
+        }
+        break;
+      case 'phone':
+        if (!value) {
+          error = 'Please enter your phone number';
+        } else {
+          // Removes spaces/dashes to validate standard UK formats (07xxx, 01xxx, 02xxx, 03xxx, or +44 equivalents)
+          var cleanPhone = value.replace(/[\s\-]/g, '');
+          var isValidUk = /^(?:(?:\+44|0)7\d{9}|(?:\+44|0)[123]\d{8,9})$/.test(cleanPhone);
+          if (!isValidUk) {
+            error = 'Please enter a valid UK phone number (e.g. 07123 456789 or +44 7123 456789)';
+          }
+        }
+        break;
+      case 'deviceType':
+        if (!value) error = 'Please specify your device type';
+        break;
+      case 'service':
+        if (!value) error = 'Please select a service';
+        break;
+      case 'date':
+        if (!value) error = 'Please select a preferred date';
+        break;
+      case 'time':
+        if (!value) error = 'Please select a preferred time';
+        break;
+    }
+    return error;
+  }
+
+  function validateAll(data) {
+    var errors = {};
+    for (var key in data) {
+      var err = validateField(key, data[key]);
+      if (err) errors[key] = err;
+    }
+    return errors;
+  }
+
+  // Live validation on blur & input
   var fields = ['name', 'email', 'phone', 'deviceType', 'service', 'date', 'time', 'message'];
   fields.forEach(function (field) {
     $('#' + field).on('blur', function () {
@@ -211,8 +265,8 @@ $(document).ready(function () {
       return;
     }
 
-    // Save to sessionStorage 
-    var id = generateId();
+    // Save booking logic
+    var id = typeof generateId === 'function' ? generateId() : 'BK' + Math.floor(100000 + Math.random() * 900000);
     var booking = Object.assign({}, data, {
       id: id,
       status: 'pending',
@@ -223,9 +277,11 @@ $(document).ready(function () {
     $btn.prop('disabled', true).html('<span class="spinner-border spinner-border-sm" role="status"></span> Saving...');
 
     setTimeout(function () {
-      saveBooking(booking);
+      if (typeof saveBooking === 'function') {
+        saveBooking(booking);
+      }
 
-      var serviceName = SERVICES.find(function (s) { return s.id === data.service; });
+      var serviceName = (typeof SERVICES !== 'undefined') ? SERVICES.find(function (s) { return s.id === data.service; }) : null;
       serviceName = serviceName ? serviceName.name : data.service;
 
       var promoRow = data.promoCode ? '<dt class="col-5" style="color: var(--slate-500);">Promo code:</dt><dd class="col-7 fw-semibold" style="color: var(--slate-800);">' + data.promoCode + '</dd>' : '';
@@ -262,7 +318,7 @@ $(document).ready(function () {
     }, 600);
   });
 
-  // =====  Map pin popups =====
+  // Map pin popups
   $('.map-pin').on('click', function () {
     var $pin = $(this);
     if ($pin.hasClass('active')) {
@@ -273,17 +329,14 @@ $(document).ready(function () {
     }
   });
 
-  // Close map popups when clicking elsewhere
   $(document).on('click', function (e) {
     if (!$(e.target).closest('.map-pin').length) {
       $('.map-pin').removeClass('active');
     }
   });
 
-  // Pre-select a service if we arrived via a "Book this service" link
-  // from the services page, e.g. contact.html?service=phone-repair
   var preselectId = new URLSearchParams(window.location.search).get('service');
-  if (preselectId && SERVICES.some(function (s) { return s.id === preselectId; })) {
+  if (preselectId && typeof SERVICES !== 'undefined' && SERVICES.some(function (s) { return s.id === preselectId; })) {
     $serviceSelect.val(preselectId).trigger('change');
   }
 });
