@@ -259,6 +259,80 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(0);
 }
 
+/* ===== Booking cards (My Bookings page) ===== */
+.booking-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.booking-card:hover {
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12);
+  transform: translateY(-3px);
+}
+.booking-card:active {
+  transform: translateY(-1px) scale(0.99);
+  transition: transform 0.1s ease;
+}
+.booking-card:focus-visible {
+  outline: 2px solid var(--primary-500);
+  outline-offset: 3px;
+}
+.booking-card-chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--primary-600);
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+.booking-card:hover .booking-card-chevron {
+  transform: translateX(3px);
+  background: rgba(37, 99, 235, 0.14);
+}
+[data-theme="dark"] .booking-card-chevron {
+  background: rgba(96, 165, 250, 0.12);
+  color: var(--primary-400, #60a5fa);
+}
+
+/* ===== Booking detail modal ===== */
+.booking-modal-section + .booking-modal-section {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--slate-200);
+}
+[data-theme="dark"] .booking-modal-section + .booking-modal-section {
+  border-top-color: rgba(100, 116, 139, 0.25);
+}
+.booking-modal-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--slate-400);
+  margin-bottom: 0.75rem;
+}
+.booking-modal-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  margin-bottom: 0.625rem;
+  font-size: 0.9rem;
+  color: var(--slate-700);
+}
+[data-theme="dark"] .booking-modal-row {
+  color: var(--slate-200);
+}
+.booking-modal-row svg { flex-shrink: 0; margin-top: 2px; color: var(--slate-400); }
+.booking-modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.booking-modal-actions > * { flex: 1 1 140px; }
+
 /* ===== Service detail modal ===== */
 .service-modal .modal-dialog {
   max-width: 620px;
@@ -316,24 +390,10 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 2;
   width: 32px;
   height: 32px;
-  padding: 0;
-  border: 0;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(8px);
   opacity: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--primary-600);
-  cursor: pointer;
-}
-.service-modal-close:hover {
-  background: rgba(255, 255, 255, 0.95);
-}
-.service-modal-close svg {
-  width: 18px;
-  height: 18px;
 }
 .service-icon-wrap {
   display: flex;
@@ -526,16 +586,30 @@ h1, h2, h3, h4, h5, h6 {
 
 .animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
 .animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+
+/* ===== Scroll-triggered reveal (played once an element scrolls into view) ===== */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal-on-scroll.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
 .animate-fade-in-down { animation: fadeInDown 0.6s ease-out forwards; }
 .animate-scale-in { animation: scaleIn 0.4s ease-out forwards; }
 
-.stagger > * { opacity: 0; animation: fadeInUp 0.6s ease-out forwards; }
-.stagger > *:nth-child(1) { animation-delay: 0.05s; }
-.stagger > *:nth-child(2) { animation-delay: 0.15s; }
-.stagger > *:nth-child(3) { animation-delay: 0.25s; }
-.stagger > *:nth-child(4) { animation-delay: 0.35s; }
-.stagger > *:nth-child(5) { animation-delay: 0.45s; }
-.stagger > *:nth-child(6) { animation-delay: 0.55s; }
+/* Cards inside a .stagger container stay hidden until the container scrolls
+   into view (see initScrollReveal in app.js), then fade/slide in one by one. */
+.stagger > * { opacity: 0; }
+.stagger.in-view > * { animation: fadeInUp 0.6s ease-out forwards; }
+.stagger.in-view > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger.in-view > *:nth-child(2) { animation-delay: 0.15s; }
+.stagger.in-view > *:nth-child(3) { animation-delay: 0.25s; }
+.stagger.in-view > *:nth-child(4) { animation-delay: 0.35s; }
+.stagger.in-view > *:nth-child(5) { animation-delay: 0.45s; }
+.stagger.in-view > *:nth-child(6) { animation-delay: 0.55s; }
 
 /* ===== Utility ===== */
 .section-padding { padding-top: 3rem; padding-bottom: 3rem; }
@@ -649,7 +723,7 @@ textarea:focus-visible {
 }
 [data-theme="dark"] .service-modal-close {
   background: rgba(51, 65, 85, 0.85);
-  color: var(--primary-400, var(--primary-500));
+  color: var(--slate-100);
 }
 [data-theme="dark"] .service-card-expand {
   background: rgba(30, 41, 59, 0.85);
@@ -781,6 +855,170 @@ textarea:focus-visible {
 }
 [data-theme="dark"] .back-to-top {
   background: var(--primary-500);
+}
+
+/* ===== Interactive timeline ===== */
+.timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--primary-500), var(--accent-500));
+  border-radius: 2px;
+  transform: translateX(-50%);
+}
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 1rem 2.5rem 1rem 0;
+}
+.timeline-item:nth-child(even) {
+  margin-left: 50%;
+  padding: 1rem 0 1rem 2.5rem;
+}
+.timeline-dot {
+  position: absolute;
+  right: -10px;
+  top: 1.5rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--primary-600);
+  border: 4px solid #fff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+.timeline-item:nth-child(even) .timeline-dot {
+  right: auto;
+  left: -10px;
+}
+.timeline-dot:hover {
+  transform: scale(1.3);
+  box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.3);
+}
+.timeline-content {
+  display: none;
+}
+.timeline-content.show {
+  display: block;
+}
+.timeline-year {
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--primary-600);
+  margin-bottom: 0.5rem;
+}
+.timeline-title {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--slate-900);
+  margin-bottom: 0.5rem;
+}
+.timeline-text {
+  color: var(--slate-600);
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+@media (max-width: 767px) {
+  .timeline::before {
+    left: 20px;
+  }
+  .timeline-item {
+    width: 100%;
+    padding: 1rem 0 1rem 3rem;
+  }
+  .timeline-item:nth-child(even) {
+    margin-left: 0;
+    padding: 1rem 0 1rem 3rem;
+  }
+  .timeline-dot {
+    left: 10px !important;
+    right: auto !important;
+  }
+}
+
+/* ===== Map pins ===== */
+.map-container {
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.12);
+}
+.map-container img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+.map-pin {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  z-index: 5;
+}
+.map-pin svg {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s ease;
+}
+.map-pin:hover svg {
+  transform: scale(1.2) translateY(-4px);
+}
+.map-pin-popup {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.2);
+  white-space: nowrap;
+  font-size: 0.8125rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+.map-pin-popup::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #fff;
+}
+.map-pin.active .map-pin-popup {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-4px);
+}
+[data-theme="dark"] .map-pin-popup {
+  background: var(--slate-100);
+  color: var(--slate-700);
+}
+[data-theme="dark"] .map-pin-popup::after {
+  border-top-color: var(--slate-100);
+}
+.map-pin-popup strong {
+  display: block;
+  color: var(--slate-900);
+  margin-bottom: 2px;
+}
+[data-theme="dark"] .map-pin-popup strong {
+  color: var(--slate-900);
+}
+.map-pin-popup span {
+  color: var(--slate-500);
 }
 
 /* ===== Pricing summary ===== */
