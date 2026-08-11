@@ -435,7 +435,7 @@ These outcomes are reflected in the project's separation of shared data, page-sp
 ## Links
 
 * **GitHub Repository:** https://github.com/craj42560-source/Circuit-Co..git
-* **Live Website:** https://craj42560-source.github.io/Circuit-Co./contact.html
+* **Live Website:** https://craj42560-source.github.io/Circuit-Co./index.html
 
 ## License
 
